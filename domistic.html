@@ -1,0 +1,229 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/jpg" href="img/rooster.jpg">
+		<link type="text/css" href="css/allpage.css" rel="stylesheet">
+		<title>Lets know about the animals</title>
+	<script type="text/javascript">
+		var question, chA,num=0,audio,pronusation, answer = "";
+		var questions = [
+			["Sheep", "The sheep (Ovis aries) is a quadrupedal, ruminant mammal typically kept as livestock. Like all ruminants, sheep are members of the order Artiodactyla, the even-toed ungulates. Although the name sheep applies to many species in the genus Ovis, in everyday usage it almost always refers to Ovis aries. Numbering a little over one billion, domestic sheep are also the most numerous species of sheep. "],
+
+			["Dog", "The domestic dog (Canis lupus familiaris or Canis familiaris)[4] is a member of genus Canis (canines) that forms part of the wolf-like canids,[5] and is the most widely abundant carnivore.[6][7][8] The dog and the extant gray wolf are sister taxa,[9][10][11] with modern wolves not closely related to the wolves that were first domesticated,[10][11] which implies that the direct ancestor of the dog is extinct."],
+
+			["cat", "catThe domestic cat[1][5] (Felis silvestris catus or Felis catus) is a small, typically furry, carnivorous mammal. They are often called house cats when kept as indoor pets or simply cats when there is no need to distinguish them from other felids and felines.[6] Cats are often valued by humans for companionship and for their ability to hunt vermin. There are more than 70 cat breeds, though different associations proclaim different numbers according to their standards."],
+
+			["Rooster", "A rooster also known as a cockerel or cock, is a malegallinaceous bird, usually a male chicken (Gallus gallus).Mature male chickens less than one year old are called cockerels. The term rooster originates in the United States,[1] and the term is widely used throughout North America, as well as Australia and New Zealand.[2] The older terms cock or cockerel, the latter denoting a young cock, are used in the United Kingdom and Ireland."],
+
+			["cow", "Cows are members of the sub-family ‘Bovinae’ of the family ‘Bovidae’. This family also includes Gazelles, Buffalo, Bison, Antelopes, Sheep and Goats.Cows are raised for many reasons including: milk, cheese, other dairy products, also for meat such as beef and veal and materials such as leather hide. In older times they were used as work animals to pull carts and to plow fields. "],
+
+			["Chicken","The chicken (Gallus gallus domesticus) is a type of domesticated fowl, a subspecies of the red junglefowl. It is one of the most common and widespread domestic animals, with a total population of more than 19 billion as of 2011.[1] Humans keep chickens primarily as a source of food, consuming both their meat and their eggs. "],
+
+			["Donkey","The donkey or ass (Equus africanus asinus)[1][2] is a domesticated member of the horse family, Equidae. The wild ancestor of the donkey is the African wild ass, E. africanus. The donkey has been used as a working animal for at least 5000 years. There are more than 40 million donkeys in the world, mostly in underdeveloped countries, where they are used principally as draught or pack animals. "]
+		];
+			function _(x){
+				return document.getElementById(x);
+			}
+			function renderQuestion(){
+				if (num >= questions.length) {
+					_("answer").innerHTML = "";
+					num = 0;                               
+					return false;
+			}
+			answer = "";
+			if(num == 0){
+					document.getElementById("img").style.backgroundImage = "url('img/sheep.jpg')";
+						audio = new Audio('audio/sheep.m4a');
+						pronusation = new Audio('pronusation/sheep.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/sheep'");
+						
+
+			}
+			else if(num == 1){
+					document.getElementById("img").style.backgroundImage = "url('img/35.jpg')";
+						audio = new Audio('audio/dog.m4a');
+						pronusation = new Audio('pronusation/dog.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/dog'");
+
+
+
+			}
+			else if(num == 2){
+					document.getElementById("img").style.backgroundImage = "url('img/80.png')";
+						audio = new Audio('audio/cat.m4a');
+						pronusation = new Audio('pronusation/cat.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/cat'");
+
+			}
+			else if(num == 3){
+					document.getElementById("img").style.backgroundImage = "url('img/rooster.jpg')";
+						audio = new Audio('audio/rooster.wav');
+						pronusation = new Audio('pronusation/rooster.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/rooster'");
+
+			}
+			else if(num == 4){
+					document.getElementById("img").style.backgroundImage = "url('img/87.png')";
+						audio = new Audio('audio/caw.m4a');
+						pronusation = new Audio('pronusation/cow.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/cow'");
+
+			}
+			else if(num == 5){
+					document.getElementById("img").style.backgroundImage = "url('img/cheken.jpg')";
+						audio = new Audio('audio/cheken.m4a');
+						pronusation = new Audio('pronusation/cheken.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/cheken'");
+
+			}
+			else{
+				document.getElementById("img").style.backgroundImage = "url('img/104.jpg')";
+					audio = new Audio('audio/donkey.m4a');
+					pronusation = new Audio('pronusation/donkey.m4a');
+					document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/donkey'");
+
+			}
+			
+			question = questions[num][0];
+			chA = questions[num][1];
+
+			_("animalsName").innerHTML =  question ;
+			_("pragraph").innerHTML = chA ;
+
+			_("animalsName").innerHTML += '<img src="img/4.png" id="next" onclick="checkAnswer()">';
+			_("animalsName").innerHTML += '<img src="img/4.1.png" id="Forward" onclick="checkAnswerBack()">';
+
+		}
+		
+			function checkAnswer(){
+			
+				num++;
+				renderQuestion();
+			}
+			function checkAnswerBack(){
+			
+				num--;
+				renderQuestion();
+			}
+			window.addEventListener("load", renderQuestion, false);
+			
+			function playAudio(){
+			 		audio.play();
+			 		}
+
+			 function playword(){
+			 		pronusation.play();
+			 		}
+			function changeColor(a){
+				a.style.backgroundColor="green";
+				
+				
+			
+			}
+			function change(b){
+				b.style.backgroundColor="red";
+				
+		}
+		
+
+	</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo">
+				<center><h1>lets know about the Animals</h1></center>
+			</div>
+		<p id="toggle"><span></span></p>
+		<div id="menu">
+			<center>
+				<ul id="navbar">
+					<li><a  href="index.html">
+						<figure><img src="img/home.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="domistic.html">
+						<figure><img src="img/domestic.png" id="button" class="active"></figure></a></li>
+					<li><a  href="birds.html">
+						<figure><img src="img/Bird.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="wildlife.html">
+						<figure><img src="img/lion.png" id="button"></figure>
+ 						</a></li>
+					<li><a  href="reptile.html">
+						<figure><img src="img/snake.png" id="button"></figure>
+						</a></li>
+					<li><a  href="firststep.html">
+						<figure><img src="img/game.png" id="button"></figure>
+						</a></li>
+					<li><a  href="about.html">
+						<figure><img src="img/new1.png" id="button"></figure>
+						</a></li>
+				</ul>
+			</center>
+		</div>
+	</div>
+	<div id="content">
+			<h1 id="animalsName"></h1>
+			<div id="img"></div>
+			<p id="pragraph"></p>
+			<a href="#" id="readmore" onmouseover="changeColor(this)" onmouseout="change(this)">Read more</a>
+			<button id="sound" onclick="playAudio()" onmouseover="changeColor(this)" onmouseout="change(this)">sound animals</button>
+			<button id="pronusation" onclick="playword()" onmouseover="changeColor(this)"  onmouseout="change(this)">Pronunciation word</button>
+		</div>
+	<!-- <div id="content">
+			<h1 id="animalsName"></h1>
+			<div id="img"></div>
+			<p id="pragraph"></p>
+			<a href="#" id="readmore" onmouseover="changeColor(this)" onmouseout="change(this)">Read more</a>
+			<button id="sound" onclick="playAudio()" onmouseover="changeColor(this)" onmouseout="change(this)">sound animals</button>
+			<button id="pronusation" onclick="playword()" onmouseover="changeColor(this)"  onmouseout="change(this)">Pronunciation word</button>
+		</div> -->
+		<script type="text/javascript">
+			var active = document.getElementsByClassName("active");
+			active[0].setAttribute('src', 'img/domestic1.png');
+
+
+			 //START NAVBAR COLLAPSE
+			var theToggle = document.getElementById('toggle');
+
+			// hasClass
+			function hasClass(elem, className) {
+				return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+			}
+			// addClass
+			function addClass(elem, className) {
+			    if (!hasClass(elem, className)) {
+			    	elem.className += ' ' + className;
+			    }
+			}
+			// removeClass
+			function removeClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+				if (hasClass(elem, className)) {
+			        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+			            newClass = newClass.replace(' ' + className + ' ', ' ');
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    }
+			}
+			// toggleClass
+			function toggleClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			    if (hasClass(elem, className)) {
+			        while (newClass.indexOf(" " + className + " ") >= 0 ) {
+			            newClass = newClass.replace( " " + className + " " , " " );
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    } else {
+			        elem.className += ' ' + className;
+			    }
+			}
+
+			theToggle.onclick = function() {
+			   toggleClass(this, 'on');
+			   return false;
+			}
+		 
+		</script>
+		
+	</body>
+</html>

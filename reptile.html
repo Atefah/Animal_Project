@@ -1,0 +1,214 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/jpg" href="img/snake.jpg">
+		<link type="text/css" href="css/allpage.css" rel="stylesheet">
+		<title>Lets know about the animals</title>
+		<script type="text/javascript">
+			var question, chA,num=0,audio,pronusation,answer = "";
+			var questions = [
+			["Alligator", "An alligator is a crocodilian in the genus Alligator of the family Alligatoridae. The two living species are the American alligator (A. mississippiensis) and the Chinese alligator (A. sinensis). In addition, several extinct species of alligator are known from fossil remains. Alligators first appeared during the Paleocene epoch about 66 million years ago."],
+
+			["Snake", "Snakes are elongated, legless, carnivorous reptiles of the suborder Serpentes.[2] Like all squamates, snakes are ectothermic, amniote vertebrates covered in overlapping scales. Many species of snakes have skulls with several more joints than their lizard ancestors, enabling them to swallow prey much larger than their heads with their highly mobile jaws."],
+
+			["Frog", "A frog is any member of a diverse and largely carnivorous group of short-bodied, tailless amphibians composing the orderAnura (Ancient Greek an-, without + oura, tail). The oldest fossil proto-frog appeared in the early Triassic of Madagascar,but molecular clock dating suggests their origins may extend further back to the Permian,265 million years ago"],
+
+			["cobra", " any of various species of highly venomous snakes, most of which expand the neck ribs to form a hood. While the hood is characteristic of cobras, not all of them are closely related. Cobras are found from southern Africa through southern Asia to islands of Southeast Asia. Throughout their range, different species are favourites of snake charmers, who frighten them into assuming the upreared defense posture. "],
+
+
+			["Crocodile", "Crocodiles (subfamily Crocodylinae) or true crocodiles are large aquatic reptiles that live throughout the tropics in Africa, Asia, the Americas and Australia. Crocodylinae, all of whose members are considered true crocodiles, is classified as a biological subfamily. A broader sense of the term crocodile, Crocodylidae that includes Tomistoma, is not used in this article."],
+
+			["Tortoise","Tortoises (/ˈtɔːr.təs.ɪz/) are a family, Testudinidae, of land-dwelling reptiles in the order Testudines. Tortoises are shielded from predators by a shell. The top part of the shell is the carapace, the underside is the plastron, and the two are connected by the bridge. The carapace is fused to both the vertebrae and ribcage, and tortoises are unique among vertebrates in that the pectoral and pelvic girdles are inside the ribcage rather than outside."],
+
+			["Lizard", "Lizards are a widespread group of squamate reptiles, with over 6,000 species,[1] ranging across all continents except Antarctica, as well as most oceanic island chains. The group is paraphyletic as it excludes the snakes and Amphisbaeniawhich are also squamates. Lizards range in size from chameleons and geckos a few centimeters long to the 3 meter long Komodo dragon.Most lizards are quadrupedal, running with a strong side-to-side motion."],
+
+		
+			
+		];
+
+	function _(x){
+			return document.getElementById(x);
+		}
+		function renderQuestion(){
+			if (num >= questions.length) {
+				
+				num = 0;                               
+				return false;
+			}
+		
+			if(num == 0){
+					document.getElementById("img").style.backgroundImage = "url('img/Aligator.jpg')";
+						audio = new Audio('audio/aligator.wav');
+						pronusation = new Audio('pronusation/alligator.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/aligator'");
+			}
+			else if(num == 1){
+					document.getElementById("img").style.backgroundImage = "url('img/snake.jpg')";
+						audio = new Audio('audio/snake.m4a');
+						pronusation = new Audio('pronusation/snake.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/snake'");
+			}
+			else if(num == 2){
+					document.getElementById("img").style.backgroundImage = "url('img/frog.jpg')";
+						audio = new Audio('audio/frog.wav');
+						pronusation = new Audio('pronusation/frog.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/frog'");
+			}
+			else if(num == 3){
+					document.getElementById("img").style.backgroundImage = "url('img/cobra.jpg')";
+						audio = new Audio('audio/cobra.wav');
+						pronusation = new Audio('pronusation/cobra.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/cobra'");
+			}
+			else if(num == 4){
+					document.getElementById("img").style.backgroundImage = "url('img/Crocodile.jpg')";
+						audio = new Audio('audio/Crocodile.m4a');
+						pronusation = new Audio('pronusation/crocodile.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/crocodile'");
+			}
+			else if(num == 5){
+					document.getElementById("img").style.backgroundImage = "url('img/Tortoise.jpg')";
+						audio = new Audio('audio/Tartaruga.m4a');
+						pronusation = new Audio('pronusation/tortoise.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/Tartaruga'");
+			}
+			else{
+				document.getElementById("img").style.backgroundImage = "url('img/lizards.jpg')";
+					audio = new Audio('audio/_lizard1.wav');
+					pronusation = new Audio('pronusation/lizard.m4a');
+					document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/lizard'");
+
+			}
+			question = questions[num][0];
+			chA = questions[num][1];
+
+			_("animalsName").innerHTML =  question ;
+			_("pragraph").innerHTML = chA ;
+			_("animalsName").innerHTML += '<img src="img/4.png" id="next" onclick="checkAnswer()">';
+		_("animalsName").innerHTML += '<img src="img/4.1.png" id="Forward" onclick="checkAnswerBack()">';
+
+		}
+	
+		function checkAnswer(){
+		
+			num++;
+			renderQuestion();
+		}
+		function checkAnswerBack(){
+		
+			num--;
+			renderQuestion();
+		}
+		window.addEventListener("load", renderQuestion, false);
+
+		function playAudio(){
+		 		audio.play();
+		 		}
+		 function playword(){
+			 		pronusation.play();
+			 		}
+		function changeColor(a){
+			a.style.backgroundColor="green";
+			
+
+		
+		}
+		function change(b){
+			b.style.backgroundColor="red";
+			
+		}
+			
+	</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo">
+				<center><h1>lets know about the Animals</h1></center>
+			</div>
+		<p id="toggle"><span></span></p>
+		<div id="menu">
+			<center>
+				<ul id="navbar">
+					<li><a  href="index.html">
+						<figure><img src="img/home.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="domistic.html">
+						<figure><img src="img/domestic.png" id="button"></figure></a></li>
+					<li><a  href="birds.html">
+						<figure><img src="img/Bird.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="wildlife.html">
+						<figure><img src="img/lion.png" id="button"></figure>
+						</a></li>
+					<li><a  href="reptile.html">
+						<figure><img src="img/snake.png" id="button" class="active"></figure>
+						</a></li>
+					<li><a  href="firststep.html">
+						<figure><img src="img/game.png" id="button"></figure>
+						</a></li>
+					</li>
+					<li><a  href="about.html">
+						<figure><img src="img/new1.png" id="button"></figure>
+						</a></li>
+						
+				</ul>
+			</center>
+		</div>
+	</div>
+		<div id="content">
+			<h1 id="animalsName"></h1>
+			<div id="img"></div>
+			<p id="pragraph"></p>
+			<a href="#" id="readmore" onmouseover="changeColor(this)" onmouseout="change(this)">Read more</a>
+			<button id="sound" onclick="playAudio()" onmouseover="changeColor(this)" onmouseout="change(this)">sound animals</button>
+			<button id="pronusation" onclick="playword()" onmouseover="changeColor(this)"  onmouseout="change(this)">Pronunciation word</button>
+		</div>
+		<script type="text/javascript">
+			var active = document.getElementsByClassName("active");
+			 active[0].setAttribute('src', 'img/snake1.png');
+			
+
+			 //START NAVBAR COLLAPSE
+			var theToggle = document.getElementById('toggle');
+
+			// hasClass
+			function hasClass(elem, className) {
+				return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+			}
+			// addClass
+			function addClass(elem, className) {
+			    if (!hasClass(elem, className)) {
+			    	elem.className += ' ' + className;
+			    }
+			}
+			// removeClass
+			function removeClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+				if (hasClass(elem, className)) {
+			        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+			            newClass = newClass.replace(' ' + className + ' ', ' ');
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    }
+			}
+			// toggleClass
+			function toggleClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			    if (hasClass(elem, className)) {
+			        while (newClass.indexOf(" " + className + " ") >= 0 ) {
+			            newClass = newClass.replace( " " + className + " " , " " );
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    } else {
+			        elem.className += ' ' + className;
+			    }
+			}
+
+			theToggle.onclick = function() {
+			   toggleClass(this, 'on');
+			   return false;
+			}	
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,321 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/png" href="img/gameicone.png">
+		<link type="text/css" href="css/thirdstep.css" rel="stylesheet">
+		<title>Lets know about the animals</title>
+		<script type="text/javascript">
+
+		var question, chA,chB, chC,chD,chE,chF,audio,score=0, num=0, choices, answer = "";
+		var questions = [
+			[ "A", "B", "C", "D",  "E" , "F" ,"A"],
+			[ "A", "B", "C", "D",  "E" , "F" ,"F"],
+			[ "A", "B", "C", "D",  "E" , "F" ,"E"],
+			[ "A", "B", "C", "D",  "E" , "F" ,"B"],
+			[ "A", "B", "C", "D",  "E" , "F" ,"E"],
+			[ "A", "B", "C", "D",  "E" , "F" ,"F"],
+			[ "A", "B", "C", "D",  "E" , "F" ,"C"],
+		];
+		function _(x){
+			return document.getElementById(x);
+		}
+		function renderQuestion(){
+			if (num >= questions.length) {
+				finshedclick();
+				_("answer").innerHTML = "";
+				
+				
+				num = 0;                               
+				score = 0;
+				return false;
+			}
+			
+			if(num == 0){
+					audio = new Audio('pronusation/robin.m4a');
+						_("imgContainer").innerHTML = "<input type='image' src='img/robin.jpg' alt='Submit'  id='correct' class = 'Container1' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/rooster.jpg' alt='Submit' class = 'Container2' onclick='checkAnswer(this.id,this)' >";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/camel.jpg' alt='Submit'  class = 'Container3' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/40.png' alt='Submit'   class = 'Container4' onclick='checkAnswer(this.id,this)' >"	
+
+						  _("imgContainer").innerHTML += "<input type='image' src='img/96.jpg' alt='Submit'   class = 'Container5' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/cobra.jpg' alt='Submit'   class = 'Container5' onclick='checkAnswer(this.id,this)'>";
+
+						
+						
+			}
+			else if(num == 1){
+					audio = new Audio('pronusation/wolf.m4a');
+						_("imgContainer").innerHTML = "<input type='image' src='img/tartaruga.jpg' alt='Submit'   class = 'Container1'onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/tiger.jpg' alt='Submit'  class = 'Container2' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/parrot.jpg' alt='Submit'  class = 'Container3' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/swans.jpg' alt='Submit'  class = 'Container4' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/cobra.jpg' alt='Submit'  class = 'Container5' onclick='checkAnswer(this.id,this)'>"; 
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/105.jpg' alt='Submit'  id='correct' class = 'Container6' onclick='checkAnswer(this.id,this)'>";
+			}
+			else if(num == 2){
+					audio = new Audio('pronusation/geese.m4a');
+						_("imgContainer").innerHTML = "<input type='image' src='img/35.jpg' alt='Submit'  id='incorrect' class = 'Container1' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/cheken.jpg' alt='Submit'  class = 'Container2' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/elephanet.jpg' alt='Submit'  class = ' Container3'onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/goose.jpg' alt='Submit'  id='correct' class = 'Container4' onclick='checkAnswer(this.id,this)'>";	
+
+						  _("imgContainer").innerHTML += "<input type='image' src='img/peacock.jpg' alt='Submit'  class = 'Container5' onclick='checkAnswer(this.id,this)'>";
+
+						   _("imgContainer").innerHTML += "<input type='image' src='img/horse.jpg' alt='Submit'  class = 'Container6' onclick='checkAnswer(this.id,this)'>";		
+						
+			}
+			else if(num == 3){
+					audio = new Audio('pronusation/alligator.m4a');
+						_("imgContainer").innerHTML = "<input type='image' src='img/cobra.jpg' alt='Submit'   class = 'Container1' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/aligator.jpg' alt='Submit'  id='correct' class = 'Container2' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/Crotalus cerastes.jpg' alt='Submit'  class = 'Container3' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/snake.jpg' alt='Submit'   class = 'Container4' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/frog.jpg' alt='Submit'  class = 'Container5' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/lizards.jpg' alt='Submit'  class = 'Container6' onclick='checkAnswer(this.id,this)'>";
+			}
+			else if(num == 4){
+					audio = new Audio('pronusation/canary.m4a');
+						_("imgContainer").innerHTML = "<input type='image' src='img/robin.jpg' alt='Submit'  id='incorrect' class = 'Container1' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/cheken.jpg' alt='Submit'  class = 'Container2' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/bulbul.jpg' alt='Submit'  class = 'Container3'onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/European goldfinch.jpg' alt='Submit' class = 'Container4' onclick='checkAnswer(this.id,this)'>";	
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/YellowCanary.jpg' alt='Submit'  id='correct' class = 'Container5'onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/parrot.jpg' alt='Submit'  class = 'Container6' onclick='checkAnswer(this.id,this)'>";	
+						
+			}
+			else if(num == 5){
+					audio = new Audio('pronusation/gorilla.m4a');
+						_("imgContainer").innerHTML = "<input type='image' src='img/wolf.jpg' alt='Submit'   class = 'Container1' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/lion.jpg' alt='Submit'   class = 'Container2'' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/103.jpg' alt='Submit'   class = 'Container3' onclick='checkAnswer(this.id)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/37.jpg' alt='Submit'   class = 'Container4' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/101.jpg' alt='Submit'   class = 'Container5'onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/114.jpg' alt='Submit'  id='correct' class = 'Container6' onclick='checkAnswer(this.id,this)'>";
+			}
+			
+			else{
+				audio = new Audio('pronusation/cat.m4a');
+						_("imgContainer").innerHTML = "<input type='image' src='img/cheken.jpg' alt='Submit'   class = 'Container1'' onclick='checkAnswer(this.id,this)'>";
+
+					 	_("imgContainer").innerHTML += "<input type='image' src='img/rooster.jpg' alt='Submit'  class = 'Container2' onclick='checkAnswer(this.id,this)'>";
+
+						_("imgContainer").innerHTML += "<input type='image' src='img/cat.jpg' alt='Submit'  id='correct' class = 'Container3' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/101.jpg' alt='Submit'  class = 'Container4' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/104.jpg' alt='Submit'   class = 'Container5' onclick='checkAnswer(this.id,this)'>";
+
+						 _("imgContainer").innerHTML += "<input type='image' src='img/222.jpg' alt='Submit'   class = 'Container6' onclick='checkAnswer(this.id,this)'>";	
+			}
+
+			audio.play();
+			_("test-status").innerHTML = (num+1);
+			question = questions[num][0];
+			chA = questions[num][1];
+			chB = questions[num][2];
+			chC = questions[num][3];
+			chD = questions[num][4];
+			chE = questions[num][5];
+			chF = questions[num][6];
+				
+		}
+			function myfunction (argument) {
+			audio.play();
+			}
+			var j = 0;
+				function checkAnswer(imgId,elem){
+					 document.getElementById(j+1).src="img/star green.png";
+					 j++;			
+				forward();
+			}
+				function forward(){
+					num++;
+					renderQuestion();	
+				}
+				function changeColor(a){
+					a.style.backgroundColor="red";
+			}
+				function change(b){
+					b.style.backgroundColor="green";
+			}
+		window.addEventListener("load", renderQuestion, false);
+			function finshedclick(){
+						if (j>=5) {
+							
+							document.getElementById("win").style.display="block";
+								var sound = new Audio("audio/clapin sound.mp4");
+								sound.play();
+								 document.getElementById('nomra').innerHTML = "you have got " + j*2 + " from " + questions.length*2 + " Score ";
+
+						}
+						else{
+							document.getElementById("flailed").style.display="block";
+							 document.getElementById('nomra').innerHTML = "you have got " + j*2 + " from " + questions.length*2 + " Score ";
+							 	var sound = new Audio("audio/faild.mp4");
+								sound.play();
+						}
+				}
+
+
+		</script>
+	</head>
+	<body>
+
+		<div id="header">
+			<div id="logo">
+				<h1>lets know about the Animals</h1>
+			</div>
+		<p id="toggle"><span></span></p>
+		<div id="menu">
+			<center>
+				<ul id="navbar">
+					<li><a  href="index.html">
+						<figure><img src="img/home.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="domistic.html">
+						<figure><img src="img/domestic.png" id="button"></figure></a></li>
+					<li><a  href="birds.html">
+						<figure><img src="img/Bird.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="wildlife.html">
+						<figure><img src="img/lion.png" id="button"></figure>
+						</a></li>
+					<li><a  href="reptile.html">
+						<figure><img src="img/snake.png" id="button"></figure>
+						</a></li>
+					<li><a  href="firststep.html">
+						<figure><img src="img/game.png" id="button" class="active"></figure>
+						</a></li>
+					<li><a  href="about.html">
+						<figure><img src="img/new1.png" id="button"></figure>
+						</a></li>	
+				</ul>
+			</center>
+		</div>
+	</div>
+	<div id="content">
+				<br>
+				<div id="divclick">
+					<div id="score">
+						<img src="img/star.png" id="1" class="star">
+						<img src="img/star.png" id="2" class="star">
+						<img src="img/star.png" id="3" class="star">
+						<img src="img/star.png" id="4" class="star">
+						<img src="img/star.png" id="5" class="star">
+						<img src="img/star.png" id="6" class="star">
+						<img src="img/star.png" id="7" class="star">
+					</div>
+					<div id="audio">
+						<img src="img/1010.png" id="image7" class="audio" onclick="myfunction()">
+					</div>
+					<div id="test-status"></div>
+				</div>
+				<div id="test">
+					<div id="answer"></div>
+				</div>
+				<div id="imgContainer"></div>
+				<div id="win">
+					<center>
+						<h1>Excelent!!!</h1>
+						<br>
+						<h3>you could compelete this level secuessfuly!!!</h3>
+						<br>
+						<h3 id = "nomra"></h3>
+						<img src="img/star.png" id="1" class="star">
+						<img src="img/star.png" id="2" class="star">
+						<img src="img/star.png" id="3" class="star">
+						<img src="img/star.png" id="4" class="star">
+						<img src="img/star.png" id="5" class="star"><br>
+						<img src="img/claping.gif" class="clapping">
+						<button id="btnNext" onmouseover="changeColor(this)" onmouseout="change(this)"><a href="index.html">Exit</a></button>
+					</center>
+				</div>
+					<div id="flailed">
+						<center>
+							<br><h1>Sorry!!!</h1><br>
+							<h3>You failed!!!</h3><br>
+							<img src="img/crying.gif" class="clapping"><br>
+							<button id="btnTry" onmouseover="changeColor(this)" onmouseout="change(this)"><a href="Firststep.html">Try Again</a></button><br>
+						</center>
+					</div>
+				<button onclick="finshedclick()"></button>
+	</div>
+	<script type="text/javascript">
+		// CHANGE img when hove li
+		var active = document.getElementsByClassName("active");
+		active[0].setAttribute('src', 'img/game2.png');
+
+
+			 //START NAVBAR COLLAPSE
+			var theToggle = document.getElementById('toggle');
+
+			// hasClass
+			function hasClass(elem, className) {
+				return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+			}
+			// addClass
+			function addClass(elem, className) {
+			    if (!hasClass(elem, className)) {
+			    	elem.className += ' ' + className;
+			    }
+			}
+			// removeClass
+			function removeClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+				if (hasClass(elem, className)) {
+			        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+			            newClass = newClass.replace(' ' + className + ' ', ' ');
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    }
+			}
+			// toggleClass
+			function toggleClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			    if (hasClass(elem, className)) {
+			        while (newClass.indexOf(" " + className + " ") >= 0 ) {
+			            newClass = newClass.replace( " " + className + " " , " " );
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    } else {
+			        elem.className += ' ' + className;
+			    }
+			}
+
+			theToggle.onclick = function() {
+			   toggleClass(this, 'on');
+			   return false;
+			}
+
+	</script>
+	</body>
+</html>
+
+

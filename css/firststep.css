@@ -1,0 +1,451 @@
+		body{
+				padding: 0;
+				margin: 0;
+			}
+		#content{
+				width: 100%;
+				height: 75%;
+				background-image: url("../img/4.jpg");
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+			}
+
+		#content>div{
+			float: left;
+
+		}
+		#header{
+				background-color: rgb(96, 160, 20);
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+	/*	style for navagation bar*/
+		ul#navbar li{
+				list-style-type: none;
+				display: inline-block;
+				margin-bottom: 40px;
+				
+			}
+		#navbar{
+				text-align: center;
+			}
+		#navbar li{
+				margin-right: 0px;
+			}
+		#navbar li img{
+				margin-left: -39px;
+				margin-bottom: -80px;
+				
+			}
+
+		#button{	
+				height: 50px;
+				width: 180px;
+			}
+		/*style and animation for name game*/
+		#logo{
+				margin: 0 auto;
+				padding-top: 30px;
+				color: white;
+				font-size: 20px;
+				width: 60%;
+				font-family: "Lucida Calligraphy";
+				animation-name:myanimtion;
+				animation-duration:10s;
+				animation-iteration-count:infinite;
+				text-shadow:4px 4px 10px red;
+				}
+		@keyframes myanimtion{
+				0%{color:white;}
+				10%{color:black;}
+				20%{color:white}
+				30%{color:black;}
+				40%{color:white;}
+				50%{color:black}
+				60%{color:white;}
+				70%{color:black;}
+				80%{color:white;}
+				90%{color:black;}
+				100%{color:white;}
+				
+				
+			}
+	
+		#answer{
+				background-repeat:no-repeat;
+				background-size:100% 100%;
+				box-shadow: 5px 5px 10px black;
+				padding-bottom:35%; 
+		        width:557px;
+		        margin-left: 170px;  
+				margin-left: 115px;
+				margin-top:150px;
+				height: 70%;
+			}
+		#firstRow{
+				padding-top:10px;
+			}
+		#Question{
+				height: 50px;
+				width: 80px;
+				background-color: #d9ffb3;
+				border-radius: 6px;
+				margin-left: 55px;
+				font-family: Calibri;
+				font-weight: bold;
+				background-color:#009900;
+				color: white;
+
+			}
+		
+		.numQuestion{
+				height: 50px;
+				width: 50px;
+				background-color: #d9ffb3;
+				border-radius: 6px;
+				font-family: Calibri;
+				 font-weight: bold;
+				 background-color:#009900;
+				color: white;
+
+
+			}
+
+		#numberOf{
+				height: 50px;
+				width: 70px;
+				background-color:#009900;
+				color: white;
+				border-radius: 6px;
+				font-family: Calibri;
+				 font-weight: bold;
+			}
+		#choise{
+				width: 95%;
+				margin: auto;
+				margin-top: 40%;
+
+			}
+		#choise div{
+				height: 45px;
+				border: 2px solid #ccc;
+				margin-bottom: 2px;
+				border-radius: 10px;
+				cursor: pointer;
+
+			}
+			#A{
+				background-image:url("img/a.png");
+				background-size: 40px;
+				background-repeat: no-repeat;
+				background-position: left 5px;
+
+			}
+			#B{
+				background-image:url("img/b.png");
+				background-size: 40px;
+				background-repeat: no-repeat;
+				background-position: left 5px;
+
+			}
+			#C{
+				background-image:url("img/c.png");
+				background-size: 40px;
+				background-repeat: no-repeat;
+				background-position: left 5px;
+
+			}
+			#D{
+				background-image:url("img/d.png");
+				background-size: 40px;
+				background-repeat: no-repeat;
+				background-position: left 5px;
+
+			}
+			#choise div h2{
+				text-align: center;
+				margin-top: 5px;
+			}
+		
+		#Ask{
+				width: 83%;
+				padding-top: 30px;
+				float: left;
+				margin-top: 30px;
+				font-size:40px;
+				text-align: center;
+				margin-left: 115px;
+				box-shadow: 5px 5px 20px black;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				height: 20%;
+			}
+		#rightdiv{
+				box-shadow: 5px 5px 10px black;
+				background-image: transparent;
+				height: 480px;
+				margin-top: 30px;
+				width: 28%;
+				padding-top: 10px;
+				margin-left: 105px;
+				position: relative;
+			
+}
+		
+		#win,#flailed{
+			display: none;
+			position: absolute;
+			right:460px;
+			top:123px;
+			height: 360px;
+			width:557px;			
+			background-image: url("../img/greenbackgound.jpg");
+			background-size: 100% 100%;
+			color: white;
+		}
+		
+		#btnNext{
+				background-color:green;
+				width: 60px;
+				height: 40px;
+				margin-top:30px;
+				margin-left: 480px;
+			}
+			#btnNext a{
+				text-decoration: none;
+				color: white;
+
+			}
+			#btnTry a{
+				text-decoration: none;
+				color: white;
+
+			}
+			
+			#btnNext a:hover{
+				cursor: pointer;
+				text-decoration: underline;
+
+			}
+			#btnTry a:hover{
+				cursor: pointer;
+				text-decoration: underline;
+
+			}
+			.star{
+				width: 45px;
+				height: 45px;
+				padding-top: 4px;
+			}
+			.clapping{
+				margin-top: -15px;
+				width:200px;
+				height:150px;
+				
+			}
+
+			#btnTry{
+				margin-top:70px;
+				margin-left: 450px;
+				background-color:green;
+				width: 80px;
+				height: 40px;
+		}
+			/*Effect for li when hover*/
+			
+			*{box-sizing:border-box;margin:0;padding:0;}
+			figure{
+			    display:inline-block;
+			    position:relative;
+
+			}
+			img{
+			    vertical-align:middle;
+			
+			}
+			img:hover{
+			    -webkit-filter:grayscale(1);
+			    filter:grayscale(1);
+			    transition-delay:0s;
+			}
+			figure::after{
+			    animation:colours 5s linear infinite;
+			    bottom:0;
+			    content:"";
+			    left:-20px;
+			    mix-blend-mode:overlay;
+			    opacity:0;
+			    pointer-events:none;
+			    position:absolute;
+			    right:0px;
+
+			    width: 146px;
+			    height:34px;
+			    top:7px;
+			   
+			}
+			figure:hover::after{
+			    opacity:.75;
+			    transition-delay:0s;
+			}
+			figure.paused::after{
+			    animation-play-state:paused;
+			}
+			@keyframes colours{
+			    0%{background:#f00;}
+			    16.667%{background:#ff0;}
+			    33.333%{background:#0f0;}
+			    50%{background:#0ff;}
+			    66.667%{background:#00f;}
+			    83.333%{background:#f0f;}
+			    100%{background:#f00;}
+			}
+
+
+			/*start Responsive website*/
+	@media screen and (max-width: 700px){
+		/*start style for navbar collapse*/
+			#toggle {
+			  display: block;
+			  width: 10%;
+			  height: 10%;
+			  margin: 30px auto 10px;
+			}
+
+			#toggle span:after,
+			#toggle span:before {
+			  content: "";
+			  position: absolute;
+			  left: 0;
+			  top: -9px;
+			}
+			#toggle span:after{
+			  top: 9px;
+			}
+			#toggle span {
+			  position: relative;
+			  display: block;
+			}
+
+			#toggle span,
+			#toggle span:after,
+			#toggle span:before {
+			  width: 100%;
+			  height: 5px;
+			  background-color: white;
+			}
+
+			
+			#toggle.on span {
+			  background-color: transparent;
+			}
+			#toggle.on span:before {
+			  transform: rotate(45deg) translate(5px, 5px);
+			}
+			#toggle.on span:after {
+			  transform: rotate(-45deg) translate(7px, -8px);
+			}
+			#toggle.on + #menu {
+			  opacity: 1;
+			  visibility: visible;
+			}
+			
+			#menu {
+			background-color: rgb(96, 160, 20);
+			  margin: 0px;
+			  padding: 0px;
+			  opacity: 0;
+			  visibility: hidden;
+			  position: absolute;
+			  z-index: +1;
+			}
+			#content{
+				width: 100%;
+				height: 100%;
+			}
+			ul#navbar li{
+					width: 100%;
+					display: block;
+				}
+			#navbar li{
+					margin:0px;
+				}
+			#navbar li img{
+					margin-left: 0px;
+					margin-bottom:-100px;
+				}
+			#button{
+				width: 100%;
+			}
+			#logo{
+					
+					width: 100%;
+					font-size: 10px;
+				}
+			#answer{		
+					margin:90 4px;
+					width: 100%;
+					height: 30%;
+			}
+			
+			#header{
+					width: 100%;
+					height: 20%;
+					margin: 0;
+					padding:0;
+			}
+
+			#Ask{
+					width: 100%;
+					height: 12%;
+					margin: 6px;
+					padding: 20 12px;
+					border-box:box-sizing; 
+					font-size:34px;
+				}
+
+			#choise{
+					width: 95%;
+					margin-top:10px;	
+
+				}
+			#choise div{
+					margin-bottom: 0px;
+
+				}			
+			#rightdiv{
+					width: 100%;
+					height: 45%;
+					padding:0px;
+					margin-top:-80px;
+					margin-left: 0px;		
+			}
+
+			#win,#flailed{
+					display: none;
+					position: absolute;
+					left:0px;
+					top:-196px;
+					height: 65%;
+					width:98%;			
+			}
+		
+			#btnNext{
+					margin-top:-35px;
+					margin-left: 295px;
+			}
+			.clapping{
+					width:100px;
+					height:50px;
+				
+			}
+			#btnTry{
+				margin-top:-5px;
+				margin-left: 250px;
+
+		}
+	}
+
+		
+		

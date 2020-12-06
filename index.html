@@ -1,0 +1,121 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/png" href="img/Home-icon.png">
+		<link type="text/css" href="css/style.css" rel="stylesheet">
+		<title>Lets know about the animals</title>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo">
+				<center><h1>lets know about the Animals</h1></center>
+			</div>
+		<p id="toggle"><span></span></p>
+		<div id="menu">
+			<center>
+				<ul id="navbar">
+					<li><a  href="index.html" >
+						<figure><img src="img/home.png"  id="button" class="active"></figure>
+						</a></li>
+					<li><a  href="domistic.html">
+						<figure><img src="img/domestic.png" id="button"></figure></a></li>
+					<li><a  href="birds.html">
+						<figure><img src="img/Bird.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="wildlife.html">
+						<figure><img src="img/lion.png" id="button"></figure>
+						</a></li>
+					<li><a  href="reptile.html">
+						<figure><img src="img/snake.png" id="button"></figure>
+						</a></li>
+					<li><a  href="firststep.html">
+						<figure><img src="img/game.png" id="button"></figure>
+						</a></li>
+					<li><a  href="about.html">
+						<figure><img src="img/new.png"  id="button"></figure>
+						</a></li>
+				</ul>
+			</center>
+		</div>
+	</div>
+		<div id="content">
+			<div>
+				<a href="domistic.html">
+				<img src="img/rooster.gif" id="anim2" class="animal">
+				</a>
+			</div>
+			<div>
+				<a href="birdS.html">
+				<img src="img/1007.jpg" id="anim3" class="animal">
+				</a>
+			</div>
+			<div>
+				<a href="wildlife.html">
+				<img src="img/1008.gif" id="anim4" class="animal">
+				</a>
+			</div>
+			<div>
+				<a href="reptile.html">
+				<img src="img/1009.gif" id="anim5" class="animal">
+				</a>
+			</div>
+			<div id="paragraph">
+				<h2>lets know about the animals</h2>
+				<p>Lets know about the animals the name is my game in this game I intrduced four section from animals domistic ,birds, wildlife and reptiles and every section I interduced seven animals with name sound information picture and pronunsation name and in section game I ready tree section first by picture second by sound and third by pronunsetion .</p>
+
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var active = document.getElementsByClassName("active");
+			 active[0].setAttribute('src', 'img/home2.png');
+
+					 //START NAVBAR COLLAPSE
+			var theToggle = document.getElementById('toggle');
+
+			// hasClass
+			function hasClass(elem, className) {
+				return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+			}
+			// addClass
+			function addClass(elem, className) {
+			    if (!hasClass(elem, className)) {
+			    	elem.className += ' ' + className;
+			    }
+			}
+			// removeClass
+			function removeClass(elem, className) {
+	   		var content = document.getElementById("content");
+	   		 content.style.removeProperty("margin-top");
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+				if (hasClass(elem, className)) {
+			        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+			            newClass = newClass.replace(' ' + className + ' ', ' ');
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    }
+			}
+			// toggleClass
+			function toggleClass(elem, className){
+				
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			    if (hasClass(elem, className)) {
+			        while (newClass.indexOf(" " + className + " ") >= 0 ) {
+			            newClass = newClass.replace( " " + className + " " , " " );
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    } else {
+			        elem.className += ' ' + className;
+			    }
+			}
+
+			theToggle.onclick = function() {
+			   toggleClass(this, 'on');
+			   return false;
+			}
+	
+
+		</script>
+	</body>
+</html>
+	

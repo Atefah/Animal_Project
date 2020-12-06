@@ -1,0 +1,284 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/png" href="img/gameicone.png">
+		<link type="text/css" href="css/firststep.css" rel="stylesheet">
+		<head><title>lets know about the animals</title>
+		<style type="text/css">
+			#A{
+				background-image:url("img/a.png");
+				background-size: 40px;
+				background-repeat: no-repeat;
+				background-position: left 5px;
+
+			}
+			#B{
+				background-image:url("img/b.png");
+				background-size: 40px;
+				background-repeat: no-repeat;
+				background-position: left 5px;
+
+			}
+			#C{
+				background-image:url("img/c.png");
+				background-size: 40px;
+				background-repeat: no-repeat;
+				background-position: left 5px;
+
+			}
+			#D{
+				background-image:url("img/d.png");
+				background-size: 40px;
+				background-repeat: no-repeat;
+				background-position: left 5px;
+
+			}
+	</style>
+	</head>
+		<script type="text/javascript">
+		var question, chA, chB, chC, score=0, num=0, choices, answer = "";
+		var questions = [
+			["what is the name of this animal?", "Sheep", "Cat", "Dog", "Chicken",  "A"],
+			["what is the name of this animal?", "Cat", "Dog", "Sheep", "Chicken", "B"],
+			["what is the name of this animal?", "Dog", "Cat", "Chicken", "Sheep", "C"],
+			["what is the name of this animal?", "Tiger", "Horse", "Lion", "Dog", "B"],
+			["what is the name of this animal?", "Caw", "Snake", "Tiger", "Lion", "D"],
+			["what is the name of this animal?", " Frog", "Lion", "Zebra ", "Horse", "A"],
+			["what is the name of this animal?", " Lion", "Zebra", "Peacock ", "Cat", "C"],
+			["what is the name of this animal?", " Lion", "Bulbul", "Frog ", "Cat", "B"],
+			["what is the name of this animal?", " Frog", "Lion", "Zebra ", "Canare", "D"],
+			["what is the name of this animal?", " Robin", " Swans", "Frog ","Snake", "B"]
+		];
+		function _(x){
+			return document.getElementById(x);
+		}
+		function checkAnswer(value){
+			choices = document.getElementsByName("choices");
+			answer = value;
+			if (answer == questions[num][5]) {
+				score ++;
+			}
+			num++;
+			renderQuestion();	
+		}
+		function renderQuestion(){
+			if (num >= questions.length) {
+				_("answer").innerHTML = "";
+				 if(score >= 5){
+				
+				document.getElementById('win').style.display="block";
+				document.getElementById('nomra').innerHTML = "you have got " + score*2 + " from " + questions.length*2 + " Score ";
+					var sound = new Audio("audio/clapin sound.mp4");
+					sound.play();
+				 }
+				 else{
+				 document.getElementById('flailed').style.display="block";
+				document.getElementById('nomra').innerHTML = "you have got " + score*2 + " from " + questions.length*2 + " Score ";
+						var sound = new Audio("audio/faild.mp4");
+								sound.play();
+				 }
+				document.getElementById("answer").style.backgroundImage = "";                              alert(para);
+				score = 0;
+				return false;
+			}
+			answer = "";
+			if(num == 0){
+					document.getElementById("answer").style.backgroundImage = "url('img/1001.jpg')";
+			}
+			else if(num == 1){
+					document.getElementById("answer").style.backgroundImage = "url('img/35.jpg')";
+			}
+			else if(num == 2){
+					document.getElementById("answer").style.backgroundImage = "url('img/cheken.jpg')";
+			}
+			else if(num == 3){
+					document.getElementById("answer").style.backgroundImage = "url('img/94.jpg')";
+			}
+			else if(num == 4){
+					document.getElementById("answer").style.backgroundImage = "url('img/lion.jpg')";
+			}
+			else if(num == 5){
+					document.getElementById("answer").style.backgroundImage = "url('img/frog.jpg')";
+			}
+			else if(num == 6){
+				document.getElementById("answer").style.backgroundImage = "url('img/Peacock_Plumage.jpg')";
+			}
+			else if(num == 7){
+				document.getElementById("answer").style.backgroundImage = "url('img/bulbul.jpg')";
+			}
+			else if(num == 8){
+				document.getElementById("answer").style.backgroundImage = "url('img/YellowCanary.jpg')";
+			}else{
+				document.getElementById("answer").style.backgroundImage = "url('img/swans.jpg')";
+			}
+			
+			_("Number").innerHTML = (num+1);
+			question = questions[num][0];
+			chA = questions[num][1];
+			chB = questions[num][2];
+			chC = questions[num][3];
+			chD = questions[num][4];
+
+
+			_("Ask").innerHTML = "<h6>"+ question + "</h6>";
+					_("radio1").innerHTML =chA;
+					_("radio2").innerHTML = chB;
+					_("radio3").innerHTML = chC;
+					_("radio4").innerHTML =chD;
+			
+				}
+			
+			
+		window.addEventListener("load", renderQuestion, false);
+	
+		// style for button when click 
+		function changeColor(a){
+				a.style.backgroundColor="green";
+				a.style.color="white";
+				a.style.border= "2px solid black";
+			}
+			function change(b){
+				b.style.backgroundColor="transparent";
+				b.style.color="black";
+				b.style.border= "2px solid #ccc";
+		
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="header">
+				<div id="logo">
+					<center><h1>lets know about the Animals</h1></center>
+				</div>
+		<p id="toggle"><span></span></p>
+		<div id="menu">
+			<center>
+				<ul id="navbar">
+					<li><a  href="index.html">
+						<figure><img src="img/home.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="domistic.html">
+						<figure><img src="img/domestic.png" id="button"></figure></a></li>
+					<li><a  href="birds.html">
+						<figure><img src="img/Bird.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="wildlife.html">
+						<figure><img src="img/lion.png" id="button"></figure>
+						</a></li>
+					<li><a  href="reptile.html">
+						<figure><img src="img/snake.png" id="button"></figure>
+						</a></li>
+					<li><a  href="firststep.html">
+						<figure><img src="img/game.png" id="button" class="active"></figure>
+						</a></li>
+					<li><a  href="about.html">
+						<figure><img src="img/new1.png" id="button" ></figure>
+						</a></li>	
+				</ul>
+			</center>
+		</div>
+	</div>
+		<div id="content">
+			<div id="leftdiv">
+					<div id="Ask"></div>
+					<div  id="answer"></div>
+			</div>
+				<div id="rightdiv">
+					<div id="firstRow">
+						<button id="Question">Question</button>
+						<button id="Number" class="numQuestion"></button>
+						<button id="numberOf">from 10</button>
+					</div>
+					<div id="choise">
+						<div id="A" onclick="checkAnswer(this.id)" onmouseover="changeColor(this)" onmouseout="change(this)">
+							<h2 id="radio1"></h2>
+						</div> 
+						<div id="B" onclick="checkAnswer(this.id)" onmouseover="changeColor(this)" onmouseout="change(this)">
+							<h2 id="radio2"></h2>
+						</div>
+						<div id="C" onclick="checkAnswer(this.id)" onmouseover="changeColor(this)" onmouseout="change(this)">
+							<h2 id="radio3"></h2>
+						</div> 
+						<div id="D" onclick="checkAnswer(this.id)" onmouseover="changeColor(this)" onmouseout="change(this)">
+							<h2 id="radio4"></h2>
+						</div>
+					</div>
+					<div id="win">
+						<center>
+							<h1>Excelent!!!</h1>
+							<br>
+							<h3>you could compelete this level secuessfuly!!!</h3>
+							<h3 id = "nomra"></h3>
+							<img src="img/star.png" id="1" class="star">
+							<img src="img/star.png" id="2" class="star">
+							<img src="img/star.png" id="3" class="star">
+							<img src="img/star.png" id="4" class="star">
+							<img src="img/star.png" id="5" class="star"><br>
+							<img src="img/claping.gif" class="clapping">
+							
+						</center>
+						<button id="btnNext"><a href="Secondstep.html">Next Level</a></button>
+					</div>
+
+					<center><div id="flailed">
+						<br><h1>Sorry!!!</h1><br>
+						<h3>You failed!!!</h3><br>
+						<img src="img/crying.gif" class="clapping"><br>
+						<button  id="btnTry"><a href="Firststep.html">Try Again</a></button><br>
+					</div></center>
+				</div>
+		</div>	
+		<script type="text/javascript">
+			var active = document.getElementsByClassName("active");
+			active[0].setAttribute('src', 'img/game2.png');
+			
+				 //START NAVBAR COLLAPSE
+			var theToggle = document.getElementById('toggle');
+
+			// hasClass
+			function hasClass(elem, className) {
+				return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+			}
+			// addClass
+			function addClass(elem, className) {
+			    if (!hasClass(elem, className)) {
+			    	elem.className += ' ' + className;
+			    }
+			}
+			// removeClass
+			function removeClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+				if (hasClass(elem, className)) {
+			        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+			            newClass = newClass.replace(' ' + className + ' ', ' ');
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    }
+			}
+			// toggleClass
+			function toggleClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			    if (hasClass(elem, className)) {
+			        while (newClass.indexOf(" " + className + " ") >= 0 ) {
+			            newClass = newClass.replace( " " + className + " " , " " );
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    } else {
+			        elem.className += ' ' + className;
+			    }
+			}
+
+			theToggle.onclick = function() {
+			   toggleClass(this, 'on');
+			   return false;
+
+			}
+
+
+		</script>			
+		</body>
+
+
+</html>

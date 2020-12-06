@@ -1,0 +1,211 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/jpg" href="img/lion.jpg">
+		<link type="text/css" href="css/allpage.css" rel="stylesheet">
+		<title>Lets know about the animals</title>
+	</head>		
+		<script type="text/javascript">
+			var question,chA,num=0,audio,pronusation, answer = "";
+			var questions = [
+				["Bear", "Bears are carnivoran mammals of the family Ursidae. They are classified as caniforms, or doglike carnivorans. Although only eight species of bears are extant, they are widespread, appearing in a wide variety of habitats throughout the Northern Hemisphere and partially in the Southern Hemisphere. Bears are found on the continents of North America, South America, Europe, and Asia.<a src='https://en.wikipedia.org/wiki/Bear'>more</a> "],
+
+				["Tiger", "The tiger (Panthera tigris) is the largest cat species, most recognizable for their pattern of dark vertical stripes on reddish-orange fur with a lighter underside. The species is classified in the genus Panthera with the lion, leopard, jaguar, and snow leopard. Tigers are apex predators, primarily preying on ungulates such as deer and bovids.<a src='https://en.wikipedia.org/wiki/Tiger'>more</a> "],
+
+				["Elephant", "Elephants are large mammals of the family Elephantidae and the order Proboscidea. Three species are currently recognized: the African bush elephant (Loxodonta africana), the African forest elephant (L. cyclotis), and the Asian elephant (Elephas maximus). Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia.<a src='https://en.wikipedia.org/wiki/Elephant'>more</a>"],
+
+				["Gorilla", "Gorillas are ground-dwelling, predominantly herbivorous apes that inhabit the forests of central Africa. The eponymous genus Gorilla is divided into two species: the eastern gorillas and the western gorillas (both critically endangered), and either four or five subspecies. They are the largest living primates. The DNA of gorillas is highly similar to that of humans, from 95–99% depending on what is counted[]<a src='https://en.wikipedia.org/wiki/Gorilla'>more</a> "],
+
+
+				["Gray wolf", "The gray wolf or grey wolf (Canis lupus),[a] also known as the timber wolf[3][4] or western wolf,[b] is a canine native to the wilderness and remote areas of Eurasia and North America. It is the largest extant member of its family, with males averaging 43–45 kg (95–99 lb) and females 36–38.5 kg (79–85 lb).[6] Like the red wolf, it is distinguished from other Canis species by its larger size and less pointed features, particularly on the ears and muzzle.<a src='https://en.wikipedia.org/wiki/Gray wolf'>more</a>"],
+
+				["lion","The lion (Panthera leo) is one of the big cats in the Felidae family and a member of genus Panthera. It has been listed as Vulnerable on the IUCN Red List since 1996, as populations in African range countries declined by about 43% since the early 1990s. Lion populations are untenable outside designated protected areas. Although the cause of the decline is not fully understood, habitat loss and conflicts with humans are the greatest causes of concern.<a src='https://en.wikipedia.org/wiki/lion'>more</a>"],
+
+				["Zebra","Zebras (/ˈzɛbrə/ ZEB-rə or /ˈziːbrə/ ZEE-brə)[1] are several species of African equids (horse family) united by their distinctive black and white striped coats. Their stripes come in different patterns, unique to each individual. They are generally social animals that live in small harems to large herds. Unlike their closest relatives, horses and donkeys, zebras have never been truly domesticated.<a src='https://en.wikipedia.org/wiki/Zebra'>more</a>"]
+			
+];
+
+
+			function _(x){
+				return document.getElementById(x);
+			}
+			function renderQuestion(){
+				if (num >= questions.length) {
+					_("answer").innerHTML = "";
+					num = 0;                               
+					return false;
+			}
+			answer = "";
+			if(num == 0){
+					document.getElementById("img").style.backgroundImage = "url('img/96.jpg')";
+						audio = new Audio('audio/bear-roar.wav');
+						pronusation = new Audio('pronusation/bear.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/bear'");
+			}
+			else if(num == 1){
+					document.getElementById("img").style.backgroundImage = "url('img/tiger.jpg')";
+						audio = new Audio('audio/tiger.m4a');
+						pronusation = new Audio('pronusation/tiger.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/tiger'");
+			}
+			else if(num == 2){
+					document.getElementById("img").style.backgroundImage = "url('img/101.jpg')";
+						audio = new Audio('audio/elephant1.wav');
+						pronusation = new Audio('pronusation/elephant.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/elephant'");
+			}
+			else if(num == 3){
+					document.getElementById("img").style.backgroundImage = "url('img/114.jpg')";
+						audio = new Audio('audio/gorilla.m4a');
+						pronusation = new Audio('pronusation/gorilla.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/gorilla'");
+			}
+			else if(num == 4){
+					document.getElementById("img").style.backgroundImage = "url('img/105.jpg')";
+						audio = new Audio('audio/wolf.wav');
+						pronusation = new Audio('pronusation/wolf.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/wolf'");
+			}
+			else if(num == 5){
+					document.getElementById("img").style.backgroundImage = "url('img/84.png')";
+						audio = new Audio('audio/lion.m4a');
+						pronusation = new Audio('pronusation/lion.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/lion'");
+			}
+			else{
+				document.getElementById("img").style.backgroundImage = "url('img/37.jpg')";
+					audio = new Audio('audio/zebra.m4a');
+					pronusation = new Audio('pronusation/zebra.m4a');
+					document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/zebra'");
+			}
+			question = questions[num][0];
+			chA = questions[num][1];
+
+			_("animalsName").innerHTML =  question ;
+			_("pragraph").innerHTML = chA ;
+			_("animalsName").innerHTML += '<img src="img/4.png" id="next" onclick="checkAnswer()">';
+			_("animalsName").innerHTML += '<img src="img/4.1.png" id="Forward" onclick="checkAnswerBack()">';
+
+		}
+		
+			function checkAnswer(){
+			
+				num++;
+				renderQuestion();
+			}
+			function checkAnswerBack(){
+			
+				num--;
+				renderQuestion();
+			}
+			window.addEventListener("load", renderQuestion, false);
+			
+			function playAudio(){
+			 		audio.play();
+
+			 		
+			 		}
+			  function playword(){
+			 		pronusation.play();
+			 		}
+
+			function changeColor(a){
+				a.style.backgroundColor="green";
+			
+			}
+			function change(b){
+				b.style.backgroundColor="red";
+				
+			}
+			
+	</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo">
+				<center><h1>lets know about the Animals</h1></center>
+			</div>
+		<p id="toggle"><span></span></p>
+		<div id="menu">
+			<center>
+				<ul id="navbar">
+					<li><a  href="index.html">
+						<figure><img src="img/home.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="domistic.html">
+						<figure><img src="img/domestic.png" id="button"></figure></a></li>
+					<li><a  href="birds.html">
+						<figure><img src="img/Bird.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="wildlife.html">
+						<figure><img src="img/lion.png" id="button" class="active"></figure>
+						</a></li>
+					<li><a  href="reptile.html">
+						<figure><img src="img/snake.png" id="button"></figure>
+						</a></li>
+					<li ><a  href="firststep.html">
+						<figure><img src="img/game.png" id="button"></figure>
+						</a></li>
+					<li><a  href="about.html">
+						<figure><img src="img/new1.png" id="button"></figure>
+						</a></li>
+						
+				</ul>
+			</center>
+		</div>
+	</div>
+		<div id="content">
+			<h1 id="animalsName"></h1>
+			<div id="img"></div>
+			<p id="pragraph"></p>
+			<a href="#" id="readmore" onmouseover="changeColor(this)" onmouseout="change(this)">Read more</a>
+			<button id="sound" onclick="playAudio()" onmouseover="changeColor(this)" onmouseout="change(this)">sound animals</button>
+			<button id="pronusation"  onclick="playword()" onmouseover="changeColor(this)"  onmouseout="change(this)">Pronunciation word</button>
+		</div>
+		<script type="text/javascript">
+			var active = document.getElementsByClassName("active");
+			 active[0].setAttribute('src', 'img/lion.png');
+
+			  //START NAVBAR COLLAPSE
+			var theToggle = document.getElementById('toggle');
+
+			// hasClass
+			function hasClass(elem, className) {
+				return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+			}
+			// addClass
+			function addClass(elem, className) {
+			    if (!hasClass(elem, className)) {
+			    	elem.className += ' ' + className;
+			    }
+			}
+			// removeClass
+			function removeClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+				if (hasClass(elem, className)) {
+			        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+			            newClass = newClass.replace(' ' + className + ' ', ' ');
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    }
+			}
+			// toggleClass
+			function toggleClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			    if (hasClass(elem, className)) {
+			        while (newClass.indexOf(" " + className + " ") >= 0 ) {
+			            newClass = newClass.replace( " " + className + " " , " " );
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    } else {
+			        elem.className += ' ' + className;
+			    }
+			}
+
+			theToggle.onclick = function() {
+			   toggleClass(this, 'on');
+			   return false;
+			}
+		</script>
+	</body>
+</html>

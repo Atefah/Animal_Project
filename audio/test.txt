@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			
+	.test{
+		background-color:rgba(151, 112, 233,0.5);
+		color:red; 
+		padding:5px;
+		font-family:"Cooper Black";
+		box-shadow:green;
+		margin-bottom: 20%;
+	}
+    .answer{
+        padding-bottom:55%; 
+	} 
+	#answer{
+		
+		background-repeat:no-repeat;
+		background-size:100% 100%;
+
+	}
+	</style>
+		<script type="text/javascript">
+		var question, chA, chB, chC, score=0, num=0, choices, answer = "";
+		var questions = [
+			["نام این حیوان چیست؟", "گربه", "سگ", "شیر", "خرس",  "B"],
+			["این خرگوش چه رنگ دارد؟", "ابی", "سبز", "سرخ", "سیاه", "A"],
+			["در این تصویر چند جوره کفش وجود دارد؟", "10", "11", "13", "12", "B"],
+			["این تصویر چه شکل دارد؟", "دایره", "مثلث", "مربع", "مستطیل", "A"],
+			["در تصویر زیر چند گربه وجود دارد؟", "5", "3", "4", "6", "C"],
+			["این لباس ها چه رنگهایی دارند؟", " نارنجی گلابی سبز", "گلابی نارنجی سبز", "سبز نارنجی گلابی ", "گلابی سبز نارنجی", "B"]
+		];
+		function _(x){
+			return document.getElementById(x);
+		}
+		function renderQuestion(){
+			if (num >= questions.length) {
+				_("answer").innerHTML = "";
+				_("test-status").innerHTML = " شما گرفتید" + score*2 + " از " + questions.length*2 + " نمره ";
+				_("test").innerHTML = " ازهمکاری شما تشکر :)";
+				
+				num = 0;                               
+				score = 0;
+				return false;
+			}
+			answer = "";
+			if(num == 0){
+					document.getElementById("answer").style.backgroundImage = "url('img/dog.png')";
+			}
+			else if(num == 1){
+					document.getElementById("answer").style.backgroundImage = "url('img/abi.png')";
+			}
+			else if(num == 2){
+					document.getElementById("answer").style.backgroundImage = "url('img/kafsh.png')";
+			}
+			else if(num == 3){
+					document.getElementById("answer").style.backgroundImage = "url('img/daiera.png')";
+			}
+			else if(num == 4){
+					document.getElementById("answer").style.backgroundImage = "url('img/cat.png')";
+			}
+			else if(num == 5){
+					document.getElementById("answer").style.backgroundImage = "url('img/libas.png')";
+			}
+			else{
+				document.getElementById("answer").style.backgroundImage = "url('img/cat.png')";
+			}
+			_("test-status").innerHTML = "سوال" + (num+1) +  " از " + questions.length;
+			question = questions[num][0];
+			chA = questions[num][1];
+			chB = questions[num][2];
+			chC = questions[num][3];
+			chD = questions[num][4];
+
+			_("test").innerHTML = "<h3>"+ question + "</h3>";
+			
+			
+				_("test").innerHTML += "<input type='radio' name='choices' value='A'>"+chA + "<br>"
+				_("test").innerHTML += "<input type='radio' name='choices' value='B'>"+chB + "<br>"
+				_("test").innerHTML += "<input type='radio' name='choices' value='C'>"+chC + "<br>"
+				_("test").innerHTML += "<input type='radio' name='choices' value='D'>"+chD + "<br>"
+			
+			
+			_("test").innerHTML += "<button onclick='checkAnswer()'>بعدی </button>";
+
+		}
+	
+		function checkAnswer(){
+			choices = document.getElementsByName("choices");
+			for (var i = 0; i < choices.length; i++) {
+				if(choices[i].checked){
+
+					answer = choices[i].value;
+				}
+			}
+			if (answer == questions[num][5]) {
+				score ++;
+			}
+			num++;
+			renderQuestion();
+		}
+		window.addEventListener("load", renderQuestion, false);
+	</script>
+	</head> 
+	<body>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="test">
+			<h2 id="test-status"></h2>
+
+			<div class="answer" id="answer"></div>
+		
+			<div id="test">
+			</div>
+			<div id="test">
+				<span id="keyAnswer"></span>
+			</div>
+		</div>
+	</body>
+</html>

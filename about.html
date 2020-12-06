@@ -1,0 +1,139 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/jpg" href="img/about.jpg">
+		<link type="text/css" href="css/about.css" rel="stylesheet">
+		<title>Lets know about the animals</title>
+		<style type="text/css">
+
+		</style>
+
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo">
+				<center><h1>lets know about the Animals</h1></center>
+			</div>
+		<p id="toggle"><span></span></p>
+		<div id="menu">
+			<center>
+				<ul id="navbar">
+					<li><a  href="index.html">
+						<figure><img src="img/home.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="domistic.html">
+						<figure><img src="img/domestic.png" id="button"></figure></a></li>
+					<li><a  href="birds.html">
+						<figure><img src="img/Bird.png"  id="button"></figure>
+						</a></li>
+					<li><a  href="wildlife.html">
+						<figure><img src="img/lion.png" id="button"></figure>
+						</a></li>
+					<li><a  href="reptile.html">
+						<figure><img src="img/snake.png" id="button"></figure>
+						</a></li>
+					<li ><a  href="firststep.html">
+						<figure><img src="img/game.png" id="button"></figure>
+						</a></li>
+					<li><a  href="about.html">
+						<figure><img src="img/new1.png" id="button" class="active"></figure>
+						</a></li>	
+				</ul>
+			</center>
+		</div>
+	</div>
+		<div id="content">
+			<br>
+			<div id="aboutme">
+					<center><img src="img/Atefah.JPG" id="image">
+						<h1 id="title">About me</h1>
+					</center>
+					<p id="paragraph">
+						I am Atefa Mohammadi.I am studying computer science at Herat Univarsity.
+						I am learning coding at code to inspire. I learn coding beacuse I love it. 
+						I have developed this game for children beacuse all the children love animals and can know the animals better.
+					</p>
+					<div class="mark">
+						<center>
+							<a href="https://twitter.com/" target = "_blank">
+								<img src="img/twitter.png" id="icone">
+							</a>
+							<a href="https://www.facebook.com" target = "_blank">
+								<img src="img/facebook.png" id="icone">
+							</a>
+							<a href="https://mail.google.com/mail" target = "_blank">
+								<img src="img/gmail.png" id="icone">
+							</a>
+							<a href="http://codetoinspire.org" target = "_blank">
+								<img src="img/code to inspire.png" id="icone1">
+							</a>
+						</center>
+				</div>
+			</div>
+			<div id="aboutproject">
+					<br>
+					<center><img src="img/project.PNG" id="image1">
+						<h1 id="title1">About project</h1>
+						</center>
+						<p id="pragraph1">"Lets know about the animals" is the name of my game. This game has four categories of animals such as: domistic, birds, wildlife and reptiles.Each category has seven animals with their names, sound, picture.
+						The user is asked to identify the animals by their picture, sound or pronounciation of their name.</p>
+
+					<div class="mark1">
+						<center>
+							<a href="http://codetoinspire.org" target = "_blank">
+								<img src="img/code to inspire.png" id="icone1">
+							</a>
+						</center>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			var active = document.getElementsByClassName("active");
+			 active[0].setAttribute('src', 'img/new.png');
+
+			   //START NAVBAR COLLAPSE
+			var theToggle = document.getElementById('toggle');
+
+			// hasClass
+			function hasClass(elem, className) {
+				return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+			}
+			// addClass
+			function addClass(elem, className) {
+			    if (!hasClass(elem, className)) {
+			    	elem.className += ' ' + className;
+			    }
+			}
+			// removeClass
+			function removeClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+				if (hasClass(elem, className)) {
+			        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+			            newClass = newClass.replace(' ' + className + ' ', ' ');
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    }
+			}
+			// toggleClass
+			function toggleClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			    if (hasClass(elem, className)) {
+			        while (newClass.indexOf(" " + className + " ") >= 0 ) {
+			            newClass = newClass.replace( " " + className + " " , " " );
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    } else {
+			        elem.className += ' ' + className;
+			    }
+			}
+
+			theToggle.onclick = function() {
+			   toggleClass(this, 'on');
+			   return false;
+			}
+
+		</script>
+	</body>
+
+</html>

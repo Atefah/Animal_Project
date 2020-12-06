@@ -1,0 +1,215 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/png" href="img/birds.png">
+		<link type="text/css" href="css/allpage.css" rel="stylesheet">
+		<title>Lets know about the animals</title>
+		<script type="text/javascript">
+			var question, chA,num=0,audio,pronusation, answer = "";
+			var questions = [
+				["American robin", "he American robin (Turdus migratorius) is a migratory songbird of the thrush family. It is named after the European robin[2]because of its reddish-orange breast, though the two species are not closely related, with the European robin belonging to the Old World flycatcher family. The American robin is widely distributed throughout North America, wintering from southern Canada to central Mexico and along the Pacific Coast."],
+
+				["Bulbul", "The bulbuls are a family, Pycnonotidae, of medium-sized passerine songbirds. Many forest species are known as greenbuls, brownbuls, leafloves, or bristlebills. The family is distributed across most of Africa and into the Middle East, tropical Asia to Indonesia, and north as far as Japan. A few insular species occur on the tropical islands of the Indian Ocean There are over 150 species in 27 genera."],
+
+				["Geese", "Geese are waterfowl of the family Anatidae. This group comprises the genera Anser (the grey geese), and Branta (the black geese). Some other birds, mostly related to the shelducks, havegoose as part of their names More distantly related members of the family Anatidae are swans,most of which are larger than true geese,and ducks,which are smaller."],
+
+
+				["Lark", "Larks are passerine birds of the family Alaudidae. All species occur in the Old World, and in northern and eastern Australia. Only one, the horned lark, is also found in North America. Habitats vary widely, but many species live in dry regions.Larks are a well-defined family, partly because of the shape of their tarsus.[1] They have multiple scutes on the hind side of their tarsi, rather than the single plate found in most songbirds."],
+
+				["parrot","Parrots,also known as psittacinesˈsɪtəsaɪnz,are birds of the roughly 393 species in 92 genera that make up the order Psittaciformes,found in most tropical and subtropical regions.The order is subdivided into three superfamilies: the Psittacoidea trueparrots), the Cacatuoidea(cockatoos),and the Strigopoidea(New Zealand parrots).Parrots have a generally pantropical distribution with several species inhabiting temperate."],
+
+				["European goldfinch", "The European goldfinch or goldfinch (Carduelis carduelis), is a small passerine bird in the finch family that is native to Europe, North Africa and western Asia. It has been introduced to other areas including Australia, New Zealand and Uruguay.The goldfinch has a red face and a black-and-white head. The back and flanks are buff or chestnut brown. The black wings have a broad yellow bar. The tail is black and the rump is white."],
+
+				["Domestic canary","Canaries were first bred in captivity in the 17th century. They were brought over by Spanish sailors to Europe. This bird became expensive and fashionable to breeding in courts of Spanish and English kings.[6][7] Monks started breeding them and only sold the males (which sing). This kept the birds in short supply and drove the price up. Eventually Italians obtained hens and were able to breed the birds themselves."]
+			
+		];
+
+
+			function _(x){
+				return document.getElementById(x);
+			}
+			function renderQuestion(){
+				if (num >= questions.length) {
+					_("answer").innerHTML = "";
+					num = 0;                               
+					return false;
+			}
+			
+			if(num == 0){
+					document.getElementById("img").style.backgroundImage = "url('img/robin.jpg')";
+					document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/robin'");
+
+						audio = new Audio('audio/robin.wav');
+						pronusation = new Audio('pronusation/robin.m4a');
+		}
+			else if(num == 1){
+					document.getElementById("img").style.backgroundImage = "url('img/bulbul.jpg')";
+						audio = new Audio('audio/bulbul.wav');
+						pronusation = new Audio('pronusation/bulbul.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/bulbul'");
+						
+						
+			}
+			else if(num == 2){
+					document.getElementById("img").style.backgroundImage = "url('img/goose.jpg')";
+						audio = new Audio('audio/goose.m4a');
+						pronusation = new Audio('pronusation/geese.wma');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/goose'");
+						
+
+			}
+			else if(num == 3){
+					document.getElementById("img").style.backgroundImage = "url('img/lark.jpg')";
+							audio = new Audio('audio/lark.m4a');
+							pronusation = new Audio('pronusation/lark.m4a');
+							document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/Lark'");
+   						 		
+			}
+			else if(num == 4){
+					document.getElementById("img").style.backgroundImage = "url('img/parrot.jpg')";
+					audio = new Audio('audio/parrot.m4a');
+					pronusation = new Audio('pronusation/parrot.m4a');
+					document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/Parrot'");
+
+			}
+			else if(num == 5){
+					document.getElementById("img").style.backgroundImage = "url('img/European goldfinch.jpg')";
+						audio = new Audio('audio/goldfinch.wav');
+						pronusation = new Audio('pronusation/goldfinch.m4a');
+						document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/European Goldfinch'");
+			}
+			else{
+				document.getElementById("img").style.backgroundImage = "url('img/YellowCanary.jpg')";
+					audio = new Audio('audio/canare.wav');
+					pronusation = new Audio('pronusation/canary.wma');
+					document.getElementById("readmore").setAttribute("onclick", "location.href='https://en.wikipedia.org/wiki/Canare'");
+			}
+			question = questions[num][0];
+			chA = questions[num][1];
+			
+			
+			_("animalsName").innerHTML =  question ;
+			_("pragraph").innerHTML = chA ;
+
+			_("animalsName").innerHTML += '<img src="img/4.png" id="next" onclick="checkAnswer()">';
+			_("animalsName").innerHTML += '<img src="img/4.1.png" id="Forward" onclick="checkAnswerBack()">';
+
+		}
+	
+			function checkAnswer(){
+				num++;
+				renderQuestion();
+			}
+			function checkAnswerBack(){
+				num--;
+				renderQuestion();
+			}
+			window.addEventListener("load", renderQuestion, false);
+			function playAudio(){
+			 		audio.play();
+			 		}
+			 function playword(){
+			 		pronusation.play();
+			 		}
+			function changeColor(a){
+				a.style.backgroundColor="green";
+			}
+			function change(b){
+				b.style.backgroundColor="red";
+			}
+
+
+			
+			</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo">
+				<center><h1>lets know about the Animals</h1></center>
+			</div>
+			<center>
+				<p id="toggle"><span></span></p>
+				<div id="menu">
+					<ul id="navbar">
+						<li><a  href="index.html">
+							<figure><img src="img/home.png"  id="button"></figure>
+							</a></li>
+						<li><a  href="domistic.html">
+							<figure><img src="img/domestic.png" id="button"></figure></a></li>
+						<li><a  href="birds.html">
+							<figure><img src="img/Bird.png"  id="button" class="active"></figure>
+							</a></li>
+						<li><a  href="wildlife.html">
+							<figure><img src="img/lion.png" id="button"></figure>
+							</a></li>
+						<li><a  href="reptile.html">
+							<figure><img src="img/snake.png" id="button"></figure>
+							</a></li>
+						<li><a  href="firststep.html">
+							<figure><img src="img/game.png" id="button"></figure>
+							</a></li>
+						</li>
+						<li><a  href="about.html">
+							<figure><img src="img/new1.png" id="button"></figure>
+							</a></li>	
+					</ul>
+				</center>
+		</div>
+	</div>
+		<div id="content">
+			<h1 id="animalsName"></h1>
+			<div id="img"></div>
+			<p id="pragraph"></p>
+			<a href="#" id="readmore" onmouseover="changeColor(this)" onmouseout="change(this)">Read more</a>
+			<button id="sound" onclick="playAudio()" onmouseover="changeColor(this)" onmouseout="change(this)">sound animals</button>
+			<button id="pronusation" onclick="playword()" onmouseover="changeColor(this)"  onmouseout="change(this)">Pronunciation word</button>
+		</div>
+		<script type="text/javascript">
+			var active = document.getElementsByClassName("active");
+			 active[0].setAttribute('src', 'img/Bird3.png');
+
+
+			 //START NAVBAR COLLAPSE
+			var theToggle = document.getElementById('toggle');
+
+			// hasClass
+			function hasClass(elem, className) {
+				return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+			}
+			// addClass
+			function addClass(elem, className) {
+			    if (!hasClass(elem, className)) {
+			    	elem.className += ' ' + className;
+			    }
+			}
+			// removeClass
+			function removeClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+				if (hasClass(elem, className)) {
+			        while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+			            newClass = newClass.replace(' ' + className + ' ', ' ');
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    }
+			}
+			// toggleClass
+			function toggleClass(elem, className) {
+				var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			    if (hasClass(elem, className)) {
+			        while (newClass.indexOf(" " + className + " ") >= 0 ) {
+			            newClass = newClass.replace( " " + className + " " , " " );
+			        }
+			        elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			    } else {
+			        elem.className += ' ' + className;
+			    }
+			}
+
+			theToggle.onclick = function() {
+			   toggleClass(this, 'on');
+			   return false;
+			}
+
+		</script>
+	</body>
+</html>
